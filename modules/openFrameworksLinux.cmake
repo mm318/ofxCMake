@@ -19,15 +19,7 @@ list( APPEND OF_CORE_HEADERS ${OF_DIRECTORY_ABSOLUTE}/libs/kiss/include)
 set( LIB_FMODEX ${OF_DIRECTORY_ABSOLUTE}/libs/fmodex/lib/linux64/libfmodex.so )
 
 set( OF_CORE_LIBS
-        ${OF_DIRECTORY_ABSOLUTE}/libs/glfw/lib/linux64/libglfw3.a
         ${OF_DIRECTORY_ABSOLUTE}/libs/kiss/lib/linux64/libkiss.a
-        ${OF_DIRECTORY_ABSOLUTE}/libs/poco/lib/linux64/libPocoCrypto.a
-        ${OF_DIRECTORY_ABSOLUTE}/libs/poco/lib/linux64/libPocoFoundation.a
-        ${OF_DIRECTORY_ABSOLUTE}/libs/poco/lib/linux64/libPocoNet.a
-        ${OF_DIRECTORY_ABSOLUTE}/libs/poco/lib/linux64/libPocoNetSSL.a
-        ${OF_DIRECTORY_ABSOLUTE}/libs/poco/lib/linux64/libPocoUtil.a
-        ${OF_DIRECTORY_ABSOLUTE}/libs/poco/lib/linux64/libPocoXML.a
-        ${OF_DIRECTORY_ABSOLUTE}/libs/poco/lib/linux64/libPocoJSON.a
         ${OF_DIRECTORY_ABSOLUTE}/libs/tess2/lib/linux64/libtess2.a
         )
 
@@ -46,10 +38,10 @@ PKG_SEARCH_MODULE( CAIRO "REQUIRED" cairo )
 include_directories( ${CAIRO_INCLUDE_DIRS} )
 include_directories( ${OPENAL_INCLUDE_DIRS} )
 include_directories( ${ALSA_INCLUDE_DIRS} )
+include_directories( ${GSTREAMER_INCLUDE_DIRS} )
 include_directories( ${GSTREAMER_APP_INCLUDE_DIRS} )
 include_directories( ${GSTREAMER_BASE_INCLUDE_DIRS} )
 include_directories( ${GSTREAMER_VIDEO_INCLUDE_DIRS} )
-
 
 set( OF_CORE_FRAMEWORKS
         z
@@ -64,6 +56,7 @@ set( OF_CORE_FRAMEWORKS
         openal
         ssl
         crypto
+        curl
         pulse-simple
         pulse
         asound
@@ -83,6 +76,7 @@ set( OF_CORE_FRAMEWORKS
         glib-2.0
         mpg123
         glut
+        glfw
         X11
         Xrandr
         Xxf86vm
@@ -95,5 +89,6 @@ set( OF_CORE_FRAMEWORKS
         freeimage
         boost_filesystem
         boost_system
-        ${LIB_FMODEX}       # SHARED
+        uriparser
+        ${LIB_FMODEX}   # SHARED
         )

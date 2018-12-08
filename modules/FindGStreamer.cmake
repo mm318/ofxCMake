@@ -55,13 +55,7 @@ find_package(PkgConfig)
 #   _pkgconfig_name is the component's pkg-config name (eg. "gstreamer-1.0", or "gstreamer-video-1.0").
 #   _library is the component's library name (eg. "gstreamer-1.0" or "gstvideo-1.0")
 macro(FIND_GSTREAMER_COMPONENT _component_prefix _pkgconfig_name _library)
-
-    string(REGEX MATCH "(.*)>=(.*)" _dummy "${_pkgconfig_name}")
-    if ("${CMAKE_MATCH_2}" STREQUAL "")
-        pkg_check_modules(PC_${_component_prefix} "${_pkgconfig_name} >= ${GStreamer_FIND_VERSION}")
-    else ()
-        pkg_check_modules(PC_${_component_prefix} ${_pkgconfig_name})
-    endif ()
+    pkg_check_modules(PC_${_component_prefix} ${_pkgconfig_name})
     set(${_component_prefix}_INCLUDE_DIRS ${PC_${_component_prefix}_INCLUDE_DIRS})
 
     find_library(${_component_prefix}_LIBRARIES

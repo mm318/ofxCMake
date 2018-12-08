@@ -6,12 +6,12 @@ set(OF_SOURCE_FILES
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/3d/of3dUtils.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/3d/ofCamera.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/3d/ofEasyCam.cpp
-        ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/3d/ofMesh.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/3d/ofNode.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/app/ofAppGLFWWindow.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/app/ofAppGlutWindow.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/app/ofAppNoWindow.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/app/ofAppRunner.cpp
+        ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/app/ofBaseApp.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/app/ofMainLoop.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/communication/ofArduino.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/communication/ofSerial.cpp
@@ -31,10 +31,10 @@ set(OF_SOURCE_FILES
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofBitmapFont.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofCairoRenderer.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofGraphics.cpp
+        ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofGraphicsBaseTypes.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofImage.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofPath.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofPixels.cpp
-        ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofPolyline.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofRendererCollection.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofTessellator.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/graphics/ofTrueTypeFont.cpp
@@ -46,8 +46,11 @@ set(OF_SOURCE_FILES
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/math/ofVec4f.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound/ofFmodSoundPlayer.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound/ofOpenALSoundPlayer.cpp
+        ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound/ofRtAudioSoundStream.cpp
+        ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound/ofSoundBaseTypes.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound/ofSoundBuffer.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound/ofSoundPlayer.cpp
+        ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound/ofSoundStream.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/types/ofBaseTypes.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/types/ofColor.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/types/ofParameter.cpp
@@ -66,6 +69,8 @@ set(OF_SOURCE_FILES
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/video/ofVideoGrabber.cpp
         ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/video/ofVideoPlayer.cpp
         )
+
+
 # ============================================================================
 # ----------------------------- Include Folders-------------------------------
 set(HEADER_OF_0 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks)
@@ -80,15 +85,17 @@ set(HEADER_OF_8 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound)
 set(HEADER_OF_9 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/types)
 set(HEADER_OF_10 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/utils)
 set(HEADER_OF_11 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/video)
+set(HEADER_JSON ${OF_DIRECTORY_ABSOLUTE}/libs/json/include)
 set(HEADER_FREETYPE ${OF_DIRECTORY_ABSOLUTE}/libs/freetype/include)
-set(HEADER_FREETYPE2 ${OF_DIRECTORY_ABSOLUTE}/libs/freetype/include/freetype2)
-set(HEADER_POCO ${OF_DIRECTORY_ABSOLUTE}/libs/poco/include)
-set(HEADER_FMODEX ${OF_DIRECTORY_ABSOLUTE}/libs/fmodex/include)
-set(HEADER_FREEIMAGE ${OF_DIRECTORY_ABSOLUTE}/libs/FreeImage/include)
 set(HEADER_TESS2 ${OF_DIRECTORY_ABSOLUTE}/libs/tess2/include)
-set(HEADER_GLFW ${OF_DIRECTORY_ABSOLUTE}/libs/glfw/include)
-set(HEADER_UTF8 ${OF_DIRECTORY_ABSOLUTE}/libs/utf8cpp/include)
-
+set(HEADER_BOOST ${OF_DIRECTORY_ABSOLUTE}/libs/boost/include)
+set(HEADER_KISS ${OF_DIRECTORY_ABSOLUTE}/libs/kiss/include)
+set(HEADER_FREEIMAGE ${OF_DIRECTORY_ABSOLUTE}/libs/FreeImage/include)
+set(HEADER_URIPARSER ${OF_DIRECTORY_ABSOLUTE}/libs/uriparser/include)
+set(HEADER_GLM ${OF_DIRECTORY_ABSOLUTE}/libs/glm/include)
+set(HEADER_UTF8 ${OF_DIRECTORY_ABSOLUTE}/libs/utf8/include)
+set(HEADER_FMODEX ${OF_DIRECTORY_ABSOLUTE}/libs/fmodex/include)
+set(HEADER_PUGIXML ${OF_DIRECTORY_ABSOLUTE}/libs/pugixml/include)
 
 
 # ============================================================================
@@ -96,11 +103,15 @@ set(HEADER_UTF8 ${OF_DIRECTORY_ABSOLUTE}/libs/utf8cpp/include)
 set( OF_CORE_HEADERS
         ${HEADER_OF_0} ${HEADER_OF_1} ${HEADER_OF_2} ${HEADER_OF_3} ${HEADER_OF_4} ${HEADER_OF_5}
         ${HEADER_OF_6} ${HEADER_OF_7} ${HEADER_OF_8} ${HEADER_OF_9} ${HEADER_OF_10} ${HEADER_OF_11}
-        ${HEADER_POCO}
-        ${HEADER_FREETYPE} ${HEADER_FREETYPE2}
-        ${HEADER_FMODEX}
-        ${HEADER_FREEIMAGE}
+        ${HEADER_JSON}
+        ${HEADER_FREETYPE}
         ${HEADER_TESS2}
-        ${HEADER_GLFW}
+        ${HEADER_BOOST}
+        ${HEADER_KISS}
+        ${HEADER_FREEIMAGE}
+        ${HEADER_URIPARSER}
+        ${HEADER_GLM}
         ${HEADER_UTF8}
+        ${HEADER_FMODEX}
+        ${HEADER_PUGIXML}
         )

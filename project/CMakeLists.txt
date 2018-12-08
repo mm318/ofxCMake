@@ -11,7 +11,7 @@ project( openframeworks )
 # ===================== User Settings ====================
 # ========================================================
 # ---------------------- App name  -----------------------
-set( APP_NAME   ofApp )
+set( APP_NAME ofApp )
 
 # ------------------------ OF Path -----------------------
 # --- If outside the OF structure, set an absolute OF path

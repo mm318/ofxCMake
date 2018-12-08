@@ -27,16 +27,11 @@ include( ${OF_CMAKE_MODULES}/addOns.cmake )
 # ============================================================================
 include( ${OF_CMAKE_MODULES}/openFrameworks.cmake )
 
-if( APPLE ) # Apple is a Unix, too. So dont ask only first UNIX
-    include( ${OF_CMAKE_MODULES}/openFrameworksApple.cmake )
-elseif( UNIX )
+if( UNIX )
     include( ${OF_CMAKE_MODULES}/openFrameworksLinux.cmake )
-elseif( WIN32)
-    include( ${OF_CMAKE_MODULES}/openFrameworksWindows.cmake )
 else()
     message( FATAL_ERROR "Operating System not supported" )
 endif()
-
 
 
 # ============================================================================
@@ -44,23 +39,18 @@ endif()
 # ============================================================================
 include( ${OF_CMAKE_MODULES}/config.cmake)
 
-if( APPLE )
-    include( ${OF_CMAKE_MODULES}/configApple.cmake )
-elseif( UNIX )
+if( UNIX )
     include( ${OF_CMAKE_MODULES}/configLinux.cmake  )
-elseif( WIN32)
-    include( ${OF_CMAKE_MODULES}/configWindows.cmake  )
 else()
     message( FATAL_ERROR "Operating System not supported" )
 endif()
 
 
-
 # ============================================================================
 # ------------------------------- APP CONFIGURATION --------------------------
 # ============================================================================
-add_dependencies( ${APP_NAME} of_shared )
+add_dependencies( ${APP_NAME} of_static )
 set_target_properties( ${APP_NAME}
         PROPERTIES
-        RUNTIME_OUTPUT_DIRECTORY    ${PROJECT_SOURCE_DIR}/bin
+        RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin
         )
