@@ -85,17 +85,12 @@ set(HEADER_OF_8 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/sound)
 set(HEADER_OF_9 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/types)
 set(HEADER_OF_10 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/utils)
 set(HEADER_OF_11 ${OF_DIRECTORY_ABSOLUTE}/libs/openFrameworks/video)
-set(HEADER_JSON ${OF_DIRECTORY_ABSOLUTE}/libs/json/include)
-set(HEADER_FREETYPE ${OF_DIRECTORY_ABSOLUTE}/libs/freetype/include)
-set(HEADER_TESS2 ${OF_DIRECTORY_ABSOLUTE}/libs/tess2/include)
-set(HEADER_BOOST ${OF_DIRECTORY_ABSOLUTE}/libs/boost/include)
-set(HEADER_KISS ${OF_DIRECTORY_ABSOLUTE}/libs/kiss/include)
-set(HEADER_FREEIMAGE ${OF_DIRECTORY_ABSOLUTE}/libs/FreeImage/include)
-set(HEADER_URIPARSER ${OF_DIRECTORY_ABSOLUTE}/libs/uriparser/include)
-set(HEADER_GLM ${OF_DIRECTORY_ABSOLUTE}/libs/glm/include)
-set(HEADER_UTF8 ${OF_DIRECTORY_ABSOLUTE}/libs/utf8/include)
 set(HEADER_FMODEX ${OF_DIRECTORY_ABSOLUTE}/libs/fmodex/include)
-set(HEADER_PUGIXML ${OF_DIRECTORY_ABSOLUTE}/libs/pugixml/include)
+set(HEADER_GLM ${OF_DIRECTORY_ABSOLUTE}/libs/glm/include)
+set(HEADER_JSON ${OF_DIRECTORY_ABSOLUTE}/libs/json/include)
+set(HEADER_KISS ${OF_DIRECTORY_ABSOLUTE}/libs/kiss/include)
+set(HEADER_TESS2 ${OF_DIRECTORY_ABSOLUTE}/libs/tess2/include)
+set(HEADER_UTF8 ${OF_DIRECTORY_ABSOLUTE}/libs/utf8/include)
 
 
 # ============================================================================
@@ -103,15 +98,10 @@ set(HEADER_PUGIXML ${OF_DIRECTORY_ABSOLUTE}/libs/pugixml/include)
 set( OF_CORE_HEADERS
         ${HEADER_OF_0} ${HEADER_OF_1} ${HEADER_OF_2} ${HEADER_OF_3} ${HEADER_OF_4} ${HEADER_OF_5}
         ${HEADER_OF_6} ${HEADER_OF_7} ${HEADER_OF_8} ${HEADER_OF_9} ${HEADER_OF_10} ${HEADER_OF_11}
-        ${HEADER_JSON}
-        ${HEADER_FREETYPE}
-        ${HEADER_TESS2}
-        ${HEADER_BOOST}
-        ${HEADER_KISS}
-        ${HEADER_FREEIMAGE}
-        ${HEADER_URIPARSER}
-        ${HEADER_GLM}
-        ${HEADER_UTF8}
         ${HEADER_FMODEX}
-        ${HEADER_PUGIXML}
+        ${HEADER_GLM}
+        ${HEADER_JSON}
+        ${HEADER_KISS}
+        ${HEADER_TESS2}
+        ${HEADER_UTF8}
         )

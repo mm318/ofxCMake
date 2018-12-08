@@ -10,18 +10,17 @@ project( openframeworks )
 # ========================================================
 # ===================== User Settings ====================
 # ========================================================
-# ---------------------- App name  -----------------------
-set( APP_NAME ofApp )
-
 # ------------------------ OF Path -----------------------
 # --- If outside the OF structure, set an absolute OF path
-set( OF_DIRECTORY_BY_USER "../../.." )
+set( OF_DIRECTORY_BY_USER "${CMAKE_CURRENT_LIST_DIR}/openFrameworks-0.10.1" )
+
+# ---------------------- App name  -----------------------
+set( APP_NAME ofApp )
 
 # --------------------- Source Files ---------------------
 set( ${APP_NAME}_SOURCE_FILES
         src/main.cpp
         src/ofApp.cpp )
-
 
 # ------------------------ AddOns  -----------------------
 set( OFX_ADDONS_ACTIVE
@@ -43,4 +42,3 @@ set( OFX_ADDONS_ACTIVE
 # =========================================================================
 include( ${OF_DIRECTORY_BY_USER}/addons/ofxCMake/modules/main.cmake )
 # =========================================================================
-

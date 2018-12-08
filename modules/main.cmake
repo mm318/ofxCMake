@@ -2,6 +2,7 @@
 # ---------------------------------- CMAKE -----------------------------------
 cmake_policy( SET CMP0057 NEW)
 
+
 # ============================================================================
 # ---------------------------------- PATHS -----------------------------------
 # ============================================================================
@@ -11,7 +12,6 @@ set( CMAKE_PATH_NAME    addons/ofxCMake )
 set( OF_CMAKE_MODULES   ${OF_DIRECTORY_ABSOLUTE}/${CMAKE_PATH_NAME}/modules )
 set( OF_CMAKE_ADDONS    ${OF_DIRECTORY_ABSOLUTE}/${CMAKE_PATH_NAME}/addOns )
 set( OF_CMAKE_LIBS      ${OF_DIRECTORY_ABSOLUTE}/${CMAKE_PATH_NAME}/libs )
-
 
 
 # ============================================================================
@@ -52,5 +52,7 @@ endif()
 add_dependencies( ${APP_NAME} of_static )
 set_target_properties( ${APP_NAME}
         PROPERTIES
-        RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin
+        ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
         )

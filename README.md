@@ -1,98 +1,78 @@
 ![ofxCMake Logo](ofxCMake_Logo.jpg)
 
-# CMake for OpenFrameworks [Vers. 0.1]
-## Quick Start Guide
-1. Clone into `of/addons/ofxCMake`
-2. In `ofxCMake/project/CMakeLists.txt` change the path of your OF folder. 
-3. Copy `ofxCMake/project/CMakeLists.txt` into your project folder
-4. Open with CLion or compile via terminal
+# CMake for OpenFrameworks
 
-## Discription
+
+## Description
 CMake is a meta build system, so it can generate different build systems like Visual Studio Projects, xCode, make etc. It can also create installers like DEB, RPM and MSI. 
 
 ***CMake Intro:***
 
 [CMake](https://cmake.org) is a universal, plattform independent build system. It tells which source files and libraries of OpenFrameworks, your project and addOns have to be compiled together so you have your application. CMake is supported e.g. by the IDEs: [CLion](https://www.jetbrains.com/clion/), [QTCreator](https://www.qt.io/ide/), [KDevelop](https://www.kdevelop.org).
 
-
 ### *Note*
 This is not an ofxAddOn in the normal way.
 So do not just copy it into the `of/addons/` folder and expect it to work.
 
 
-## Installation
-1. Clone the git files in your openframeworks addon folder
-   
-   ```bash
-	$ cd of/addons
-	$ git clone https://github.com/BildPeter/ofxCMake.git
-	```
- **Alternative:** Extract in `of/addons` and rename into `ofxCMake` 
-2. In the file `ofxCMake/project/CMakeLists.txt` change the path of your OF folder. 
-
 ## Usage
+In your project directory that contains your openFrameworks app sources:
 
-### Preperation
-- Copy the file `ofxCMake/project/CMakeLists.txt` into the folder of your openframeworks project 
+- Setup openFrameworks 0.10.1:
 
-- *Optional:* 
-	- [If not done before] In this `CMakeLists.txt`: adjust the path of your OF folder.
-	- If you have more source files than the standard `main.cpp`, `ofApp.cpp` – be sure to include them in the section "Source Files"
-	- Change name of your application `APP_NAME`
+    ```bash
+    $ wget https://github.com/openframeworks/openFrameworks/archive/0.10.1.tar.gz && tar xvzf 0.10.1.tar.gz && rm 0.10.1.tar.gz
+    $ openFrameworks-0.10.1/scripts/linux/download_libs.sh
+    ```
 
-### Command Line Compilation
-- Create a new directory in your project folder – e.g.: `mkdir build`
-- Go into that folder 
-- type `cmake ..`
-- **Compile:**  `make` (optional `-j4` to compile with 4 cores)
+- Setup ofxCMake:
 
-	```bash
-	$ cd of/apps/myApps/newApp
-	$ mkdir build
-	$ cd build
-	$ cmake ..
-	$ make -j4
-	```
-- **Generate IDE files:** e.g. for xCode `cmake -G Xcode ..`
+    ```bash
+    $ git clone https://github.com/mm318/ofxCMake.git openFrameworks-0.10.1/addons/ofxCMake
+    $ cp openFrameworks-0.10.1/addons/ofxCMake/project/CMakeLists.txt .
+    ```
 
-### CLion IDE
-1. Prepare your project as explained above
-2. Choose via CLion in the 'Open File or Project' the `CMakeLists.txt`
+- Modify `./CMakeLists.txt` like `APP_NAME` and `${APP_NAME}_SOURCE_FILES` to suit your project
 
-- A promt might ask, if you want to change the 'project root'. Ignore this
-- In git, the CLion project files will be saved in  a '.idea' folder. If you want, you can ignore that in GIT.
-
+- Build like an usual CMake project, for example:
+    
+    ```bash
+    $ mkdir build
+    $ cd build
+    $ cmake ..
+    $ make -j4
+    ```
 
 
 ## Addons
+
 #### Internal Addons – *Usage*
 - Uncomment the internal addOn, you want to use in the `CMakeLists.txt` of your project
 
 #### External Addons – *Creation*
 - Create an addon-file `ofxNAME.cmake` from the templates in `ofxCMake/addOns`
 - Copy the file into `ofxCMake/addOns/external`
-- Add the path to the file `ofxCMake/modules/addOnsExternal.cmake` – like e.g. 
-`include( ${OF_CMAKE_ADDONS}/external/ofxNAME.cmake )`
+- Add the path to the file `ofxCMake/modules/addOnsExternal.cmake` – like e.g. `include( ${OF_CMAKE_ADDONS}/external/ofxNAME.cmake )`
 - Add the name of your addOn into your projects `CMakeLists.txt` in the section `AddOns`
 
 **Note:**
 *This approach is static and centralised. It is not a perfect solution, but it lets your openFramework file structure untouched, if you want to update OpenFrameworks or remove CMake. Future approach might include a configuration file in each new AddOn*
 
+
 ## Development Philosophy
 - The project file `CMakeLists.txt` is simplified for readability.
 - A modular file approach (each OS has it's own .cmake files), so understanding of the code and version control is easier
 - Having all ofxCMake files in one folder (including addOns) has the advantage:
-	- Can easily be installed
-	- OpenFrameworks can be updated, without having to do changes in the openframeworks and the CMake folders
+    - Can easily be installed
+    - OpenFrameworks can be updated, without having to do changes in the openframeworks and the CMake folders
 - Down sides:
-	- The addOn files are not placed in the addOns itself (but in `of/addons/`). It would be better, if each addOn has it's .cmake file already included. But this would mean, that the developer deliver it in their source code. 
+    - The addOn files are not placed in the addOns itself (but in `of/addons/`). It would be better, if each addOn has it's .cmake file already included. But this would mean, that the developer deliver it in their source code. 
+
 
 ## Compatibility
-At the moment (Feb 2017) only Mac OS is fully tested. 
+At the moment (Dec 2018) only Ubuntu 16.04 is tested.
 
-The infrastructure for other OS (Linux, Windows) is already set up.
-
-Tested on MacOS 10.12.2 with cMake 3.2.1 and of 0.9.8
 
 ## Special Thanks
-**[Avilleret](https://github.com/avilleret)**
+- **[BildPeter](https://github.com/BildPeter)**
+- **[Avilleret](https://github.com/avilleret)**
