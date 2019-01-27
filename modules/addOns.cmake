@@ -2,6 +2,7 @@ include( ${OF_CMAKE_MODULES}/addOnsMacros.cmake )
 
 # --- INTERNAL
 OF_include_internal_addOn( ofxOsc )
+OF_include_internal_addOn( ofxPoco )
 OF_include_internal_addOn( ofxXmlSettings )
 OF_include_internal_addOn( ofxGui )
 OF_include_internal_addOn( ofxKinect )
@@ -29,5 +30,3 @@ OF_include_external_addOn( ofxSoundProcessor )
 OF_include_external_addOn( ofxSyphon )
 OF_include_external_addOn( ofxOscHandShake )
 OF_include_external_addOn( ofxTextAlign )
-
-
