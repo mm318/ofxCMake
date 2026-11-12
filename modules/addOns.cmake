@@ -1,4 +1,4 @@
-include( ${OF_CMAKE_MODULES}/addOnsMacros.cmake )
+include( "${OF_CMAKE_MODULES}/addOnsMacros.cmake" )
 
 # --- INTERNAL
 OF_include_internal_addOn( ofxOsc )
@@ -31,3 +31,9 @@ OF_include_external_addOn( ofxSyphon )
 OF_include_external_addOn( ofxOscHandShake )
 OF_include_external_addOn( ofxTextAlign )
 OF_include_external_addOn( ofxVideoRecorder )
+
+foreach(addon IN LISTS OFX_ADDONS_ACTIVE)
+    if(NOT TARGET ${addon})
+        message(FATAL_ERROR "No CMake configuration registered for add-on ${addon}")
+    endif()
+endforeach()

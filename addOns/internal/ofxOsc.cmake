@@ -11,7 +11,6 @@ set( OFX_OSC_CPP
 #        ${OF_DIRECTORY_ABSOLUTE}/addons/ofxOsc/libs/oscpack/src/ip/win32/NetworkingUtils.cpp
 #        ${OF_DIRECTORY_ABSOLUTE}/addons/ofxOsc/libs/oscpack/src/ip/win32/UdpSocket.cpp
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp
-        ${OF_DIRECTORY_ABSOLUTE}/addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.cpp
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxOsc/src/ofxOscBundle.cpp

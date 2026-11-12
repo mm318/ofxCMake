@@ -4,15 +4,16 @@
 # ========================================================
 # ===================== CMake Settings ===================
 # ========================================================
-cmake_minimum_required( VERSION 3.3 )
-project( openframeworks )
+cmake_minimum_required( VERSION 3.16 )
+project( openframeworks LANGUAGES C CXX )
 
 # ========================================================
 # ===================== User Settings ====================
 # ========================================================
 # ------------------------ OF Path -----------------------
 # --- If outside the OF structure, set an absolute OF path
-set( OF_DIRECTORY_BY_USER "${CMAKE_CURRENT_LIST_DIR}/openFrameworks-0.10.1" )
+set( OF_DIRECTORY_BY_USER "${CMAKE_CURRENT_LIST_DIR}/of_v0.12.1_linux64_gcc6_release"
+     CACHE PATH "openFrameworks 0.12.1 installation" )
 
 # ---------------------- App name  -----------------------
 set( APP_NAME ofApp )
@@ -28,17 +29,15 @@ set( OFX_ADDONS_ACTIVE
         #        ofxOsc
         #        ofxGui
         #        ofxNetwork
-        #        ofxVectorGraphics
         #        ofxThreadedImageLoader
         #        ofxAssimpModelLoader
         #        ofxKinect
         #        ofxOpenCv
         #        ofxSvg
-        #        ofxEmscripten (untested)
-                )
+                CACHE STRING "openFrameworks add-ons to build (semicolon-separated)" )
 
 # =========================================================================
 # ============================== OpenFrameworks ===========================
 # =========================================================================
-include( ${OF_DIRECTORY_BY_USER}/addons/ofxCMake/modules/main.cmake )
+include( "${OF_DIRECTORY_BY_USER}/addons/ofxCMake/modules/main.cmake" )
 # =========================================================================

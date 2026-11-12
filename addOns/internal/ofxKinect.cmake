@@ -11,7 +11,6 @@ set( OFX_KINECT_CPP
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxKinect/libs/libfreenect/src/cameras.c
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxKinect/libs/libfreenect/src/core.c
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxKinect/libs/libfreenect/src/flags.c
-        ${OF_DIRECTORY_ABSOLUTE}/addons/ofxKinect/libs/libfreenect/src/keep_alive.c
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxKinect/libs/libfreenect/src/loader.c
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxKinect/libs/libfreenect/src/registration.c
         ${OF_DIRECTORY_ABSOLUTE}/addons/ofxKinect/libs/libfreenect/src/tilt.c
@@ -59,3 +58,6 @@ if( APPLE )
 endif()
 
 target_link_libraries(  ofxKinect ${EXTRA_LIBS_KINECT} )
+# Linux uses the system libusb, matching OF 0.12.1.
+pkg_check_modules(OF_USB REQUIRED IMPORTED_TARGET libusb-1.0)
+target_link_libraries(ofxKinect PkgConfig::OF_USB)
