@@ -27,7 +27,8 @@ CMake 3.16 or newer, pkg-config, and a compiler supporting C++17. GCC 10 and
 newer use C++20 by default, matching the upstream Linux build; you can select
 another standard with `-DCMAKE_CXX_STANDARD=17` (or newer).
 
-In your project directory containing `src/main.cpp` and `src/ofApp.cpp`:
+Start in a working directory where you can download and unpack openFrameworks.
+You will choose its final location and connect it to your application in step 3.
 
 1. Download the official package, which includes the matching third-party
    libraries:
@@ -57,26 +58,35 @@ In your project directory containing `src/main.cpp` and `src/ofApp.cpp`:
     mpg123 are enabled when pkg-config finds them. Linux sound playback uses
     OpenAL.
 
-3. Set up ofxCMake:
+3. Choose where to keep the extracted openFrameworks folder. Leave it where it
+   is, or move it to your preferred location. It can be inside your application
+   directory or elsewhere, shared by multiple applications.
+
+    Set `OF_ROOT` to the absolute path of that folder. Then change to your
+    application's root directory (containing `src/main.cpp` and `src/ofApp.cpp`)
+    and set up ofxCMake:
 
     ```bash
-    git clone https://github.com/mm318/ofxCMake.git of_v0.12.1_linux64_gcc6_release/addons/ofxCMake
-    cp of_v0.12.1_linux64_gcc6_release/addons/ofxCMake/project/CMakeLists.txt .
+    OF_ROOT=/absolute/path/to/openFrameworks
+    cd /absolute/path/to/your/app
+    git clone https://github.com/mm318/ofxCMake.git "$OF_ROOT/addons/ofxCMake"
+    cp "$OF_ROOT/addons/ofxCMake/project/CMakeLists.txt" ./CMakeLists.txt
     ```
 
+    This copies the template to your application's root, alongside `src/`.
+
 4. Adjust `APP_NAME`, `${APP_NAME}_SOURCE_FILES` and `OFX_ADDONS_ACTIVE` in
-   `CMakeLists.txt`, then build:
+   `CMakeLists.txt`, then build from that directory in the same shell:
 
     ```bash
-    cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+    cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DOF_DIRECTORY_BY_USER="$OF_ROOT"
     cmake --build build --parallel
     ./build/bin/ofApp
     ```
 
-    Set `-DOF_DIRECTORY_BY_USER=/absolute/path/to/openFrameworks` when using an
-    existing installation. Generated libraries stay in `build/lib`; the app is
-    in `build/bin`. The project's `bin/data` folder is copied beside the app
-    after building. No separate build of openFrameworks is needed.
+    Generated libraries stay in `build/lib`; the app is in `build/bin`. The
+    project's `bin/data` folder is copied beside the app after building. No
+    separate build of openFrameworks is needed.
 
 
 ## Addons
